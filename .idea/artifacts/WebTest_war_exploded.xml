@@ -1,0 +1,40 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="WebTest:war exploded">
+    <output-path>$PROJECT_DIR$/target/WebTest-1.8-SNAPSHOT</output-path>
+    <properties id="maven-jee-properties">
+      <options>
+        <exploded>true</exploded>
+        <module>WebTest</module>
+        <packaging>war</packaging>
+      </options>
+    </properties>
+    <root id="root">
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="WebTest" />
+        </element>
+        <element id="directory" name="lib">
+          <element id="library" level="project" name="Maven: org.apache.tomcat:tomcat-catalina:9.0.0.M10" />
+          <element id="library" level="project" name="Maven: org.apache.tomcat:tomcat-servlet-api:9.0.0.M10" />
+          <element id="library" level="project" name="Maven: org.apache.tomcat:tomcat-jsp-api:9.0.0.M10" />
+          <element id="library" level="project" name="Maven: org.apache.tomcat:tomcat-el-api:9.0.0.M10" />
+          <element id="library" level="project" name="Maven: org.apache.tomcat:tomcat-juli:9.0.0.M10" />
+          <element id="library" level="project" name="Maven: org.apache.tomcat:tomcat-annotations-api:9.0.0.M10" />
+          <element id="library" level="project" name="Maven: org.apache.tomcat:tomcat-api:9.0.0.M10" />
+          <element id="library" level="project" name="Maven: org.apache.tomcat:tomcat-jni:9.0.0.M10" />
+          <element id="library" level="project" name="Maven: org.apache.tomcat:tomcat-coyote:9.0.0.M10" />
+          <element id="library" level="project" name="Maven: org.apache.tomcat:tomcat-util:9.0.0.M10" />
+          <element id="library" level="project" name="Maven: org.apache.tomcat:tomcat-util-scan:9.0.0.M10" />
+          <element id="library" level="project" name="Maven: org.projectlombok:lombok:1.18.22" />
+          <element id="library" level="project" name="Maven: commons-io:commons-io:2.6" />
+          <element id="library" level="project" name="Maven: org.mybatis:mybatis:3.5.7" />
+          <element id="library" level="project" name="Maven: mysql:mysql-connector-java:5.1.43" />
+        </element>
+      </element>
+      <element id="directory" name="META-INF">
+        <element id="file-copy" path="$PROJECT_DIR$/target/WebTest-1.8-SNAPSHOT/META-INF/MANIFEST.MF" />
+      </element>
+      <element id="javaee-facet-resources" facet="WebTest/web/Web" />
+    </root>
+  </artifact>
+</component>

@@ -1,0 +1,38 @@
+了解Tomcat服务器
+Tomcat(汤姆猫)就是一个典型的Web应用服务器软件 通过Tomcat服务器 我们就可以快速部署我们的Web项目 并交由Tomcat进行管理 我们只需要直接通过浏览器服务我们的项目即可
+
+那么首先 我们需要进行一个简单的环境搭建 我们需要在Tomcat官网下载Tomcat服务端程序: https://tomcat.apache.org(下载速度可能有点慢)
+    > 下载 64-bit Windows zip
+
+下载完成后 解压 并放入桌面 接下来需要配置一下环境变量 打开高级系统设置 打开环境变量 添加一个新的系统变量 变量名称为JRE_HOME 填写JDK的安装目录+/jre
+比如jdk默认就是: C:\Program Files\xxx\xxx\jre
+
+设置完成后 我们进入tomcat文件夹bin目录下 并在当前位置打开CMD窗口 将startup.bat拖入窗口按回车运行 如果环境变量配置就是日志的配置文件(我们在前面已经给大家讲解过了)
+将ConsoleHandler的默认编码格式修改为GBK编码格式:
+            java.util.logging.ConsoleHandler.encoding = GBK
+现在重新启动服务器 就可以显示中文了
+
+服务器启动成功之后 不要关闭 我们打开浏览器 在浏览器中访问 http://localhost:8080/ Tomcat服务器默认是使用8080端口(可在配置文件中修改) 访问成功说明我们的Tomcat环境已经部署成功
+
+整个Tomcat目录下 我们已经认识了bin目录(所以可执行文件 包括启动和关闭服务器的脚本) 以及conf目录(服务器配置文件目录) 那么我们接着来看其他文件夹:
+    > lib目录 Tomcat服务端运行的一些依赖 不用关心
+    > logs目录 所有的日志信息都在这里
+    > temp目录 存放运行时产生的一些临时文件 不用关心
+    > work目录 工作目录 Tomcat会将jsp文件转换为java文件(我们后面会讲到 这里暂时不提及)
+    > webapp目录 所有的Web项目都在这里 每个文件夹都是一个Web应用程序
+
+我们发现 官方已经给我们预设了一些项目了 访问后默认使用的项目为ROOT项目 也就是我们默认打开的网站
+
+我们也可以访问example项目 在需要在后面填写路径即可: http://localhost:8080/exemples/ 或是docs项目(这个是Tomcat的一些文档) http://localhost:8080/docs/
+
+Tomcat还自带管理页面 我们打开: http://localhost:8080/manager 提升需要用户名和密码 由于不知道是什么 我们先点击取消 页面中出现如下内容:
+            401 Unauthorized
+现在我们按照上面的提升 去配置文件中进行修改:
+            <role rolename="manager-gui"/>
+            <user username="admin" password="admin" rales="manager-gui">
+现在再次打开管理页面 已经可以成功使用此用户进行登录了 登录后 展示给我们的是一个图形化界面 我们可以快速浏览当前服务器的一些信息 包括已经在运行的Web应用程序 甚至还可以查看当前的Web应用程序有没有出现内存泄露
+
+同样的 还有一个虚拟主机管理页面 用于一台主机搭建多个Web站点 一般情况下使用不到 这里就不演示了
+
+我们可以将我们自己的项目放到webapp文件夹中 这样就可以直接访问到了 我们在webapp目录下新建test文件夹 将我们之前编写的前端代码全部放入其中(包括html文件 js css icon等) 重启服务器
+我们可以直接通过http://localhost:8080/test/来进行访问
