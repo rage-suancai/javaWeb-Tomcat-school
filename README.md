@@ -1,2 +1,2 @@
-# javaWeb-Tomcat-school
+# JavaWeb-Tomcat-school
 javaWeb和Tomcat的学习
